@@ -1,8 +1,21 @@
 ## "makeCacheMatrix" and "cacheSolve" are a pair of functions which create a
-## special object that stores a matrix and caches its inverse
+## special object that stores a matrix and caches its inverse. To test:
+## > x <- makeCacheMatrix(matrix(1:4, nrow = 2, ncol = 2))
+## > cacheSolve(x) # call "cacheSolve" the 1st time
+## [,1] [,2]
+## [1,]   -2  1.5
+## [2,]    1 -0.5
+## > cacheSolve(x) # call "cacheSolve" the 2nd time
+## getting cached data
+## [,1] [,2]
+## [1,]   -2  1.5
+## [2,]    1 -0.5
 
-## "makeCacheMatrix" contains 4 functions: set the matrix, return the matrix, 
-## set the inverse of matrix, return the inverse of matrix
+## "makeCacheMatrix" contains 4 functions: 
+## 1. set the matrix 
+## 2. return the matrix 
+## 3. set the inverse of matrix (without validation) 
+## 4. return the inverse of matrix
 
 makeCacheMatrix <- function(x = matrix()) {
         inverse <- NULL
